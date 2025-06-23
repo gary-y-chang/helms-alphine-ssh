@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine-ssh
+  labels:
+    app: alpine-ssh
+spec:
+  containers:
+    - name: alpine-ssh
+      image: {{ .Values.image.repository }}:{{ .Values.image.version }}
+      imagePullPolicy: {{ .Values.image.pullPolicy }}
+      ports:
+        - containerPort: 22
